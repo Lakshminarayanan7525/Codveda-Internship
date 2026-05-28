@@ -2,7 +2,6 @@ package com.codveda.level1;
 
 import java.util.Scanner;
 
-// Calculator class with operations
 class Calculator {
 
     public double add(double a, double b) {
@@ -26,7 +25,6 @@ class Calculator {
     }
 }
 
-// Main class
 public class BasicCalculator {
 
     public static void main(String[] args) {
@@ -34,51 +32,61 @@ public class BasicCalculator {
         Scanner sc = new Scanner(System.in);
         Calculator calc = new Calculator();
 
-        System.out.println("===== BASIC CALCULATOR =====");
+        int choice;
+        char again;
 
-        System.out.print("Enter first number: ");
-        double num1 = sc.nextDouble();
+        do {
+            System.out.println("\n===== BASIC CALCULATOR =====");
 
-        System.out.print("Enter second number: ");
-        double num2 = sc.nextDouble();
+            System.out.print("Enter first number: ");
+            double num1 = sc.nextDouble();
 
-        System.out.println("\nChoose operation:");
-        System.out.println("1. Addition (+)");
-        System.out.println("2. Subtraction (-)");
-        System.out.println("3. Multiplication (*)");
-        System.out.println("4. Division (/)");
+            System.out.print("Enter second number: ");
+            double num2 = sc.nextDouble();
 
-        System.out.print("Enter choice (1-4): ");
-        int choice = sc.nextInt();
+            System.out.println("\nChoose operation:");
+            System.out.println("1. Addition (+)");
+            System.out.println("2. Subtraction (-)");
+            System.out.println("3. Multiplication (*)");
+            System.out.println("4. Division (/)");
 
-        double result;
+            System.out.print("Enter choice (1-4): ");
+            choice = sc.nextInt();
 
-        switch (choice) {
+            double result = 0;
 
-            case 1:
-                result = calc.add(num1, num2);
-                System.out.println("Result: " + result);
-                break;
+            switch (choice) {
 
-            case 2:
-                result = calc.subtract(num1, num2);
-                System.out.println("Result: " + result);
-                break;
+                case 1:
+                    result = calc.add(num1, num2);
+                    System.out.println("Result: " + result);
+                    break;
 
-            case 3:
-                result = calc.multiply(num1, num2);
-                System.out.println("Result: " + result);
-                break;
+                case 2:
+                    result = calc.subtract(num1, num2);
+                    System.out.println("Result: " + result);
+                    break;
 
-            case 4:
-                result = calc.divide(num1, num2);
-                System.out.println("Result: " + result);
-                break;
+                case 3:
+                    result = calc.multiply(num1, num2);
+                    System.out.println("Result: " + result);
+                    break;
 
-            default:
-                System.out.println("Invalid choice!");
-        }
+                case 4:
+                    result = calc.divide(num1, num2);
+                    System.out.println("Result: " + result);
+                    break;
 
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+            System.out.print("\nDo you want to continue? (y/n): ");
+            again = sc.next().charAt(0);
+
+        } while (again == 'y' || again == 'Y');
+
+        System.out.println("Calculator closed.");
         sc.close();
     }
 }
